@@ -1,7 +1,15 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import VaultPage from "./pages/VaultPage";
+import Homepage from "./pages/Homepage";
 
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline text-red-700">Hello world!</h1>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/vault" element={<VaultPage />} />
+      </Routes>
+    </Router>
   );
 }
