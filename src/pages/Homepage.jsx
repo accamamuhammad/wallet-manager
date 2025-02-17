@@ -2,9 +2,13 @@ import React from "react";
 import plusIcon from "../assets/plus-solid.svg";
 import { Link } from "react-router-dom";
 import searchIcon from "../assets/search-solid.svg";
+import leftCaret from "../assets/caret-left-solid.svg";
 
 const Homepage = () => {
   const Vaults = ["MetaMask", "Phantom", "Bitget Wallet"];
+
+  // Pass Current Vault Data to firebase
+  const handleCurrentVault = (data) => {};
 
   return (
     <main className="w-full h-[100dvh] pb-5 font-mono flex items-center justify-center bg-[rgb(3,6,22)]">
@@ -37,15 +41,17 @@ const Homepage = () => {
             return (
               <div
                 key={index}
+                onClick={() => handleCurrentVault(item)}
                 className="w-full p-2.5 cursor-pointer rounded-md bg-[rgb(23,26,40)] flex flex-row items-center justify-between"
               >
-                <div className="flex flex-row gap-3 items-center">
-                  {/* Replace with image */}
-                  <div className="h-8 w-8 bg-[rgb(3,6,22)] rounded-md"></div>
-                  <li className="list-none text-sm font-medium">{item}</li>
-                </div>
+                <Link to="/vault" className="w-full">
+                  <div className="flex flex-row gap-3 items-center">
+                    {/* Replace with image */}
+                    <div className="h-8 w-8 bg-[rgb(3,6,22)] rounded-md"></div>
+                    <li className="list-none text-sm font-medium">{item}</li>
+                  </div>
+                </Link>
                 <span className="text-xs">1</span>
-                <Link to="/vault">V</Link>
               </div>
             );
           })}
