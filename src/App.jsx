@@ -1,15 +1,16 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import "./App.css";
-import VaultPage from "./pages/VaultPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
+import WalletPage from "./pages/WalletPage";
 
-export default function App() {
+function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/vault" element={<VaultPage />} />
+        <Route path="/wallet/:vaultName" element={<WalletPage />} />
       </Routes>
     </Router>
   );
 }
+
+export default App;
